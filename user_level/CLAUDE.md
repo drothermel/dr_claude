@@ -48,6 +48,27 @@
 - **Show full modified functions**, not just diffs
 - **Prefer explicit code** over clever code
 
+### Commit Strategy
+- **Small, semantic commits**: 20-30 lines per commit with clear purpose and scope
+- **Git shortcuts**: Use efficient aliases like `gst` (status), `gd` (diff), `ga .` (add), `gc -m "msg"` (commit), `glo` (log)
+- **Quality gates**: Run linting/formatting before commits, fix only issues in your code
+- **Commit messages**: Clear, imperative mood describing the change purpose, not implementation details
+- **Incremental building**: Each commit should be a complete, reviewable unit that builds toward the goal
+
+### Task Management
+- **Use TodoWrite/TodoRead proactively** for any task requiring 3+ steps or complex coordination
+- **Plan before implementing**: Break large features into small, trackable subtasks with clear success criteria
+- **Real-time updates**: Mark tasks `in_progress` before starting, `completed` immediately after finishing
+- **Single focus**: Keep only ONE task `in_progress` at a time to maintain clarity and momentum
+- **Visible progress**: Update todos frequently so user can see advancement toward goals
+
+### Planning & Documentation
+- **Create detailed implementation plans** for complex work, with specific commit sequences and examples
+- **Document as you go**: Capture decisions, issues found, and solutions in plan documents
+- **Preserve knowledge**: Move completed plans to `docs/completed-plans/` with retrospectives and learnings
+- **Update references**: Incorporate new insights into reference documentation for future use
+- **Plan for interruption**: Write plans detailed enough that work can resume after context loss
+
 ## 🔬 ML/TRAINING SPECIFIC
 
 ### Performance Requirements
