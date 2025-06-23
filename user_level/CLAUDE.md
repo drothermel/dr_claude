@@ -52,7 +52,7 @@
 - **Small, semantic commits**: 20-30 lines per commit with clear purpose and scope
 - **Git shortcuts**: Use efficient aliases like `gst` (status), `gd` (diff), `ga .` (add), `gc -m "msg"` (commit), `glo` (log)
 - **Quality gates**: Run linting/formatting before commits, fix only issues in your code
-- **Commit messages**: Clear, imperative mood describing the change purpose, not implementation details
+- **Commit messages**: Single line, succinct and clear, imperative mood describing the change purpose, not implementation details
 - **Incremental building**: Each commit should be a complete, reviewable unit that builds toward the goal
 
 ### Task Management
