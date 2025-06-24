@@ -18,9 +18,47 @@
 
 ### Dev Tools
 - `lint` and `lint_fix`: run linting (`uv run ruff check` with optional `--fix` flag)
+- `format`: run auto formatting (`uv run ruff format`)
+- `mp <path>`: run type checking and write errors to `.mypy_errors.jsonl` where first line is metadata
 - `pt`: Run pytest
 - `us`: Install/update deps (`uv sync`)
 - `uvrp`: Python with uv (`uv run python`)
+
+### Ruff Analysis (for bulk fixes)
+When dealing with many lint errors, use the global ruff tools:
+```bash
+# Load semantic ruff commands (always available)
+source ~/.claude/ruff_tools.sh
+
+# Then use commands like:
+ruff_analyze tests        # Generate error analysis JSON
+ruff_summary             # Show error types by frequency
+ruff_hot_files           # Show files with most errors
+ruff_show ANN201         # Show examples of specific error
+ruff_unsafe_fix tests    # Run all auto-fixes
+ruff_help                # Show all available commands
+```
+
+**Manual patterns** (if needed):
+```bash
+# Generate error analysis
+uv run ruff check <path> --output-format=json-lines -o .ruff_errors.jsonl
+
+# Quick error summary
+cat .ruff_errors.jsonl | jq -r '.code' | sort | uniq -c | sort -nr
+```
+
+### Understanding Tool Exit Codes
+**CRITICAL**: Many linting/type-checking tools return non-zero exit codes when they find issues:
+- **Exit code ≠ tool failure** - An "Error" status often means "issues found", not "tool broken"
+- **File-based output** - Tools like `mp` write to files (`.mypy_errors.jsonl`), not stdout
+- **Don't retry on "Error"** - Read the output file instead of assuming the command failed
+- **Example workflow**:
+  ```bash
+  mp src tests         # May show "Error" - this is EXPECTED
+  # Immediately read .mypy_errors.jsonl for results
+  # First line has {"type": "metadata", "error_count": N}
+  ```
 
 ### Git (use shortcuts, never full commands)
 | Shortcut | Command | Use |
