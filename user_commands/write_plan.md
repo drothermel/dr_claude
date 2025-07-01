@@ -1,6 +1,6 @@
 Create an executable implementation document for: $ARGUMENTS
 
-Write the plan to `implementation-plan.md` with this structure:
+Write the plan to a file with this structure:
 
 # Implementation Plan: $ARGUMENTS
 
