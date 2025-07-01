@@ -24,6 +24,10 @@
 - `us`: Install/update deps (`uv sync`)
 - `uvrp`: Python with uv (`uv run python`)
 
+### Parse Claude Tools
+- `parse-claude`: Global CLI tool (install with `uv tool install parse-claude`)
+- `uv run python -m parse_claude`: Module usage (legacy)
+
 ### Ruff Analysis (for bulk fixes)
 When dealing with many lint errors, use the global ruff tools:
 ```bash
